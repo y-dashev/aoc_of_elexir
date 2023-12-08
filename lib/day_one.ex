@@ -31,40 +31,4 @@ defmodule DayOne do
       |> Enum.sum()
   end
 
-
-
-  @word_mapping %{
-    "zero" => "0",
-    "one" => "1",
-    "two" => "2",
-    "three" => "3",
-    "four" => "4",
-    "five" => "5",
-    "six" => "6",
-    "seven" => "7",
-    "eight" => "8",
-    "nine" => "9"
-  }
-
-  @moduledoc """
-    Parse string as digits
-  """
-  def parse_letter_digits do
-    String.split(input(), "\n")
-      |> Enum.reject(&(&1 == ""))
-      |> Enum.map(fn n ->
-        # Convert each word to a number or keep it as is
-      end)
-  end
-
-  def part2 do
-    parse_letter_digits()
-    |> IO.puts()
-  end
-
-  defp convert_word(word) do
-    case Map.get(@word_mapping, String.downcase(word)) do
-      value -> value
-    end
-  end
 end
