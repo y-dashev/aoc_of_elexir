@@ -23,6 +23,6 @@ defmodule GetData do
 
   defp headers,
     do: [
-      {'Cookie', 'session=53616c7465645f5f36996103e4cced8d9de8de1e4abf8e91c3afea87de9ab701d104c71fa27d28dd821a898baa2fccc1ac688c51710eb460a9b682d22426be42'}
+      {'Cookie', 'YOU COOKIE SESSIOn'}
     ]
 end

@@ -30,5 +30,4 @@ defmodule DayOne do
       end)
       |> Enum.sum()
   end
-
 end
