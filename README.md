@@ -1,6 +1,7 @@
 # AdventOfElexir
 
-**TODO: Add description**
+Doing 2023 AdventOfCode(https://adventofcode.com/2023) with Elixir so that I can get a bit more practise with it.
+
 
 ## Installation
 
