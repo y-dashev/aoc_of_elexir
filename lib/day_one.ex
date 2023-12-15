@@ -1,4 +1,15 @@
 defmodule DayOne do
+  @digits %{
+    "one" => 1,
+    "two" => 2,
+    "three" => 3,
+    "four" => 4,
+    "five" => 5,
+    "six" => 6,
+    "seven" => 7,
+    "eight" => 8,
+    "nine" => 9
+  }
   @moduledoc """
     Get data from adventofcode
   """
@@ -30,4 +41,35 @@ defmodule DayOne do
       end)
       |> Enum.sum()
   end
+
+
+  def day2 do
+    solve(input())
+  end
+
+  def solve(input) do
+    input
+    |> String.split("\n", trim: true)
+    |> Enum.map(&convert_line/1)
+    |> Enum.sum()
+  end
+
+  def convert_line(line) do
+    10 * first_digit(line) + last_digit(String.reverse(line))
+  end
+
+  for digit <- 1..9 do
+    string = Integer.to_string(digit)
+    defp first_digit(<<unquote(string), _::binary>>), do: unquote(digit)
+    defp last_digit(<<unquote(string), _::binary>>), do: unquote(digit)
+  end
+
+  for {string, digit} <- @digits do
+    reverse_string = String.reverse(string)
+    defp first_digit(<<unquote(string), _::binary>>), do: unquote(digit)
+    defp last_digit(<<unquote(reverse_string), _::binary>>), do: unquote(digit)
+  end
+
+  defp first_digit(<<_::utf8, rest::binary>>), do: first_digit(rest)
+  defp last_digit(<<_::utf8, rest::binary>>), do: last_digit(rest)
 end
